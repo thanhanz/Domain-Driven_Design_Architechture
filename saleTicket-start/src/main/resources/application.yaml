@@ -1,0 +1,51 @@
+server:
+  port: 8088
+  tomcat:
+    threads:
+      max: 10 #Dong thoi 10 Threads
+spring:
+  application:
+    name: SellTickets
+
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      checkRandom:
+              registerHealthIndicator: true
+              slidingWindowSize: 10
+              permittedNumberOfCallsInHalfOpenState: 3
+              #slidingWindowType: TIME_BASED
+              minimumNumberOfCalls: 5
+              waitDurationInOpenState: 5s
+              failureRateThreshold: 50
+              eventConsumerBufferSize: 10
+
+
+
+  ratelimiter:
+    instances:
+      backendA:
+        limitForPeriod: 2 #So luong yeu cau toi da cua he thong/second
+        limitRefreshPeriod: 10s #Sau moi giay -> he thong se cap request
+        timeoutDuration: 0 #Thoi gian cho` khi he thong qua' tai?
+        registerHealthIndicator: true
+        eventConsumerBufferSize: 100
+      backendB:
+        limitForPeriod: 5
+        limitRefreshPeriod: 10s
+        timeoutDuration: 3s
+
+
+management: #Để kiểm tra tình trạng của các server được khai báo
+  health:
+    circuitbreakers:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include:
+          - '*'
+  endpoint:
+    health:
+      show-details: always
