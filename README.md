@@ -24,3 +24,14 @@
   **RateLimiter**:  
   - Limits the number of requests sent to backend APIs.  
   - Includes a fallback function to handle situations when the API is rate-limited.
+
+# Video 05-06:
+  **Distributed Cache (Redisson)**:
+  - Lock: Prevents multiple processes (Service, Thread, Request) access or modify the same resource at the same time
+  - Unlock: Opposite vs Lock 
+  * Example: 
+    + Redis chua co Key "post:999"
+    + Hơn 1000 nguoi cung click vao "api/post/999"
+    + > 1000 request se truy cap vao DB cung luc => Chet DB
+    + Giai phap: Chi co request dau tien den moi duoc truy cap xuong DB va set key post:999 -> Redis se Lock de chan nhung request tiep theo truy cap xuong DB. 
+    + > **Nhung request sau se doi (khoang vai seconds hoac mili seconds tuy` vao code) -> Cache hit -> Tra ra du lieu**
