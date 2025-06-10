@@ -14,7 +14,9 @@
 
 # ![img.png](img.png)
 
-# DDD Architecture: 
+# CQRS (Command Query Responsibility Segregation):
+- Pattern tách Read, Write ra thành database riêng (Fully CQRS)
+
 
 # Tech:
 # Video from 0 - 4
