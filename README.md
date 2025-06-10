@@ -12,8 +12,11 @@
 | Test nghiệp vụ              | Dễ test domain độc lập (unit test)                        | Phải test cả service + controller                      |
 | Phụ thuộc framework         | Giảm phụ thuộc vào Spring (domain không dùng annotation)  | Gắn chặt vào Spring (@Controller, @Service, ...)       |
 
+# ![img.png](img.png)
 
+# DDD Architecture: 
 
+# Tech:
 # Video from 0 - 4
 - Understand the flow of **DDD (Domain-Driven Design) architecture**
 - The project is protected by Resilience4j (CircuitBreaker and RateLimiter)
@@ -35,3 +38,5 @@
     + > 1000 request se truy cap vao DB cung luc => Chet DB
     + Giai phap: Chi co request dau tien den moi duoc truy cap xuong DB va set key post:999 -> Redis se Lock de chan nhung request tiep theo truy cap xuong DB. 
     + > **Nhung request sau se doi (khoang vai seconds hoac mili seconds tuy` vao code) -> Cache hit -> Tra ra du lieu**
+  
+      
