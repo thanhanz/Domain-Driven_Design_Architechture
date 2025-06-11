@@ -17,6 +17,9 @@
 # CQRS (Command Query Responsibility Segregation):
 - Pattern tách Read, Write ra thành database riêng (Fully CQRS)
 
+# Aggregate: 
+- Là một nhóm, đối tượng các dữ liệu được đối xử như một thể thống nhất trong hệ thống(Những thành phần liên quan mật thiết với nhau)
+- >Vd: Order và OrderItem là thành phần nhất quán của đối tượng Aggregate Order 
 
 # Tech:
 # Video from 0 - 4
